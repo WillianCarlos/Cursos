@@ -1,0 +1,37 @@
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE QuasiQuotes       #-}
+module Add where
+
+import Foundation
+import Yesod
+import Text.Julius
+import Data.Text
+
+-- usar toWidget quando nao houver whamlet
+getAddR :: Int -> Int -> Handler Html
+getAddR x y = defaultLayout $ do
+        setTitle "Addition"
+        msg <- return $ "Ola de dentro do Haskell"
+        func <- return $ "dikhdgi"
+        toWidget [lucius|
+            h1{
+                color: red;
+                background-color: yellow;
+            }
+        |]
+        toWidgetHead [julius|
+            function #{rawJS $ pack func}(){
+                var h1 = document.getElementById("h1");
+                h1.addEventListener("click",function(e){
+                    alert(e.target.innerHTML);
+                    alert(#{rawJS $ show msg});
+                });
+            }
+            window.onload = #{rawJS $ pack func};
+        |]
+        [whamlet|
+            <h1 id="h1">
+                #{x} + #{y} = #{z}
+        |]
+  where
+    z = x + y

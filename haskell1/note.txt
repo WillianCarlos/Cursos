@@ -1,0 +1,9 @@
+sudo apt-get install haskell-platform
+
+ghci -- para entrar no gerenciador
+
+:l Aula1 -- carregar
+
+:r -- para compilar
+
+:! clear under linux and OS X

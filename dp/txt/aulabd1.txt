@@ -1,0 +1,85 @@
+function consultar() {
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", "https://hask4-romefeller.c9users.io/lista/clientes");
+    xhr.responseType = "application/json";
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == XMLHttpRequest.DONE &&  xhr.status == 201) {
+            var resposta = xhr.responseText;
+            var obj = JSON.parse(resposta);
+            montarPagina(obj);
+        }
+    }
+    xhr.send();
+}
+
+function cadastrar() {
+    var varNome = document.forms.form1.inpNome.value;
+    var data = {nome:varNome};
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", "https://hask4-romefeller.c9users.io/cliente");
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == XMLHttpRequest.DONE &&  xhr.status == 201) {
+            consultar();
+        }
+    }
+    xhr.send(JSON.stringify(data));
+    document.forms.form1.nome.value = "";
+}
+
+function montarPagina(roxo){
+    var verde = roxo["resp"];
+    var tbody = document.getElementById("alvo");
+    verde.forEach(function(vermelho){
+        var tr = document.createElement("tr");
+        var tdId = document.createElement("td");
+        var tdNome = document.createElement("td");
+        tdId.innerHTML = vermelho["id"];
+        tdNome.innerHTML = vermelho["nome"];
+        tr.appendChild(tdId);
+        tr.appendChild(tdNome);
+        tbody.appendChild(tr);
+    });
+}
+
+function main(){
+    document.getElementById("listar").addEventListener("click",function(){
+        consultar();
+    });
+    document.getElementById("cadastrar").addEventListener("click",function(){
+        cadastrar();
+    })
+}
+
+window.onload = main;
+
+------------------------
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript" src="php.js"></script>
+    </head>
+    <body>
+        <form name="form1">
+            <input type="text" name="inpNome"/>
+        </form>
+        <button id="cadastrar">Cadastrar</button><br>
+        <button id="listar">Listar</button>
+        <table>
+            <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>NOME</td>
+                </tr>
+            </thead>
+            <tbody id="alvo">
+                
+            </tbody>
+        </table>
+    </body>
+</html>
+
+
+
+
+
+git clone https://github.com/romefeller/ayesod

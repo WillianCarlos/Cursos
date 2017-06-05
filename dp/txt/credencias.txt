@@ -1,0 +1,13 @@
+Host
+ec2-54-221-244-196.compute-1.amazonaws.com
+Database
+d266mdqpq3ptp9
+User
+rvrvbpgitfqvou
+Port
+5432
+Password
+f35bda6d4170e6066a5860b9fe09d8cb1dfc57ced9e09337b0c5129daf115477
+URI
+postgres://rvrvbpgitfqvou:f35bda6d4170e6066a5860b9fe09d8cb1dfc57ced9e09337b0c5129daf115477@ec2-54-221-244-196.compute-1.amazonaws.com:5432/d266mdqpq3ptp9Heroku CLI
+heroku pg:psql postgresql-angular-89079 --app dbdohaskell

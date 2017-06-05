@@ -1,0 +1,25 @@
+let arv = Branch 10 (Leaf 5) (Branch 12 (Leaf 11) (Leaf 16))
+
+emOrdem :: Tree a -> [a]
+
+emOrdem Nada = []
+
+emOrdem (Leaf x) = [x]
+
+emOrdem (Branch r e d) = emOrdem e ++ [r] ++ emOrdem d  
+
+r = 10
+e = (Leaf 5)
+d = Branch 12 (Leaf 11) (Leaf 16)
+emOrdem arv = emOrdem (Leaf 5) ++ [10] ++ emOrdem (Branch 12 (Leaf 11) (Leaf 16))
+emOrdem arv = [5] ++ [10] ++ [11,12,16] = [5,10,11,12,16]
+==========
+emOrdem (Leaf 5) = [5]
+========
+r=12
+e=(Leaf 11)
+d=(Leaf 16)
+emOrdem (Branch 12 (Leaf 11) (Leaf 16)) = emOrdem (Leaf 11) ++ [12] ++ emOrdem (Leaf 16)
+emOrdem (Branch 12 (Leaf 11) (Leaf 16)) = [11]++[12]++[16] = [11,12,16]
+========
+emOrdem (Leaf 11) = [11]

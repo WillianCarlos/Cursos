@@ -1,0 +1,24 @@
+name:               projeto
+version:            0.0.0
+cabal-version:      >= 1.8
+build-type:         Simple
+extra-source-files: routes
+
+executable          projeto
+  main-is:          Main.hs
+  other-modules:    Application
+                    Foundation
+
+                    Add
+                    Home
+                    Pagina1
+                    Pagina2
+                    Pagina3
+
+  ghc-options:      -Wall -fwarn-tabs -O2
+
+  build-depends:  base
+                , yesod-core
+                , shakespeare
+
+  ghc-options:    -threaded -O2 -rtsopts -with-rtsopts=-N

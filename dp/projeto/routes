@@ -1,0 +1,6 @@
+/              HomeR    GET
+/add/#Int/#Int AddR     GET
+/pagina1       Pagina1R GET
+/pagina2       Pagina2R GET
+/pagina3       Pagina3R GET
+ 

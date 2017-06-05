@@ -1,0 +1,10 @@
+psql -h ec2-107-21-219-201.compute-1.amazonaws.com -U kpuwtbqndoeyqb -d dd9en8l5q4hh2a
+     
+aCROh525uugAWF1l7kahlNN3E0
+
+-----------------------------MEU----------------------------------------------------------
+psql -h ec2-54-221-244-196.compute-1.amazonaws.com -U rvrvbpgitfqvou -d d266mdqpq3ptp9
+     
+f35bda6d4170e6066a5860b9fe09d8cb1dfc57ced9e09337b0c5129daf115477
+
+
